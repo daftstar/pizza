@@ -4,18 +4,27 @@ require 'rspec'
 require_relative '../pizza'
 
 describe Pizza::Pie do #in the Pizza module, Pie Class, do the following: 
-	describe 'initalize' do
+
+	describe '.initalize' do
 		it 'records all of the toppings' do
 			toppings = [
 				Pizza::Topping.new('mushrooms', vegetarian: true),
 				Pizza::Topping.new('pepperoni')
 			]
-		pizza = Pizza::pie.new(toppings)
+		pizza = Pizza::Pie.new(toppings)
 
 		expect(pizza.toppings).to eq(toppings)
 		end
 	end
 end 
+
+
+
+
+
+
+
+
 
 
 

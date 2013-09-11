@@ -1,9 +1,19 @@
-module Pizza
+module Pizza #this class creates a pizza
+
   class Pie
+  	attr_accessor :toppings
+
+  	def initialize(toppings)
+  		@toppings = toppings
+  	end
 
   end
 
-  class Topping
+
+
+
+  class Topping #this class contains available toppings
+
   	attr_accessor :name, :vegetarian
   # Instantiate a new topping.
   #
