@@ -4,8 +4,23 @@ require 'rspec'
 require_relative '../pizza'
 
 describe Pizza::Pie do #in the Pizza module, Pie Class, do the following: 
+	describe 'initalize' do
+		it 'records all of the toppings' do
+			toppings = [
+				Pizza::Topping.new('mushrooms', vegetarian: true),
+				Pizza::Topping.new('pepperoni')
+			]
+		pizza = Pizza::pie.new(toppings)
 
+		expect(pizza.toppings).to eq(toppings)
+		end
+	end
 end 
+
+
+
+
+
 
 describe Pizza::Topping do #in the Pizza module, Topping Class, do the following:
 	
@@ -14,6 +29,8 @@ describe Pizza::Topping do #in the Pizza module, Topping Class, do the following
 
 		it "sets whether or not the topping is vegetarian" do
 			topping = Pizza::Topping.new('bell peppers', vegetarian: true)
+			# the above creates a topping object called 'bell pepper and assigns as true'
+			#the newly created topping object called 'topping' must match the expect object.vegetarian name
 			
 			expect(topping.vegetarian).to be_true # this checks for literal truthyness
 		end
