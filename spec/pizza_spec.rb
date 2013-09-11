@@ -3,46 +3,48 @@ require 'bundler/setup'
 require 'rspec'
 require_relative '../pizza'
 
-	describe Pizza::Pie do #in the Pizza module, Pie Class, do the following: 
 
 
-	describe '.initalize' do
-			it 'defaults the toppings to cheese only, if the pizza has no toppings' do
-		  pizza = Pizza::Pie.new
+describe Pizza::Pie do #in the Pizza module, Pie Class, do the following: 
 
-		  expect(pizza.toppings.size).to eq(1)
-		  expect(pizza.toppings.first.name).to eq('cheese')
-		end	
+		#If a pizza has no toppings passed to it, the pizza should be defaulted with cheese. 	
+		describe '.initalize' do
+				it 'defaults the toppings to cheese only, if the pizza has no toppings' do
+			  pizza = Pizza::Pie.new
 
-	end
-
-
-
-
+			  expect(pizza.toppings.size).to eq(1)
+			  expect(pizza.toppings.first.name).to eq('cheese')
+				end
+			end
 
 
-	describe '.initalize' do
-		it 'records all of the toppings' do
-			toppings = [
-				Pizza::Topping.new('mushrooms', vegetarian: true),
-				Pizza::Topping.new('pepperoni')
-			]
-		pizza = Pizza::Pie.new(toppings)
+		#Checks if the the toppings passed to the pizza do in fact show up on the pizza	
+		describe '.initalize' do
+			it 'records all of the toppings' do
+				toppings = [
+					Pizza::Topping.new('mushrooms', vegetarian: true),
+					Pizza::Topping.new('pepperoni')
+				]
+			pizza = Pizza::Pie.new(toppings)
 
-		expect(pizza.toppings).to eq(toppings)
+			expect(pizza.toppings).to eq(toppings)
+			end
 		end
-	end
+
+
 end 
 
 describe Pizza::Topping do #in the Pizza module, Topping Class, do the following:
 	
-	describe '.initalize' do
 	# In RSpec, we use describe blocks to specify what we are testing. At the outer level, we describe the Pizza::Topping class, and within that, we describe the initialize method. The . indicates that this is a class method (since it is called directly off of the Pizza::Topping class: Pizza::Topping.new).
+	describe '.initalize' do
 
+
+		# This test creates a topping object called 'bell pepper and assigns as true'
+		# the newly created topping object called 'topping' must match the expect object.vegetarian name
+			
 		it "sets whether or not the topping is vegetarian" do
 			topping = Pizza::Topping.new('bell peppers', vegetarian: true)
-			# the above creates a topping object called 'bell pepper and assigns as true'
-			#the newly created topping object called 'topping' must match the expect object.vegetarian name
 			
 			expect(topping.vegetarian).to be_true # this checks for literal truthyness
 		end
@@ -55,10 +57,6 @@ describe Pizza::Topping do #in the Pizza module, Topping Class, do the following
 
 			expect(topping.name).to eq('olives')
 		end
-
-
-
-
 	end
 
 end
