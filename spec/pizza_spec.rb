@@ -3,7 +3,23 @@ require 'bundler/setup'
 require 'rspec'
 require_relative '../pizza'
 
-describe Pizza::Pie do #in the Pizza module, Pie Class, do the following: 
+	describe Pizza::Pie do #in the Pizza module, Pie Class, do the following: 
+
+
+	describe '.initalize' do
+			it 'defaults the toppings to cheese only, if the pizza has no toppings' do
+		  pizza = Pizza::Pie.new
+
+		  expect(pizza.toppings.size).to eq(1)
+		  expect(pizza.toppings.first.name).to eq('cheese')
+		end	
+
+	end
+
+
+
+
+
 
 	describe '.initalize' do
 		it 'records all of the toppings' do
@@ -17,19 +33,6 @@ describe Pizza::Pie do #in the Pizza module, Pie Class, do the following:
 		end
 	end
 end 
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 describe Pizza::Topping do #in the Pizza module, Topping Class, do the following:
 	

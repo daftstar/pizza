@@ -3,8 +3,18 @@ module Pizza #this class creates a pizza
   class Pie
   	attr_accessor :toppings
 
-  	def initialize(toppings)
-  		@toppings = toppings
+  	#sets the argument as nil, if nothing is passeed in
+  	def initialize(toppings = nil) 
+  		if toppings
+  			@toppings = toppings
+  		else
+  			@toppings = [Pizza::Topping.new('cheese')]
+  		end
+
+
+	  		# this also works toppings ||= [Pizza::Topping.new('cheese')]
+	  		# this also works (but too much repetition) @toppings = toppings
+  		 #@toppings = toppings || @toppings = [Pizza::Topping.new('cheese')]
   	end
 
   end
