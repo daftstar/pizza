@@ -10,17 +10,20 @@ module Pizza #this class creates a pizza
   		else
   			@toppings = [Pizza::Topping.new('cheese')]
   		end
-
-
 	  		# this also works toppings ||= [Pizza::Topping.new('cheese')]
 	  		# this also works (but too much repetition) @toppings = toppings
   		 #@toppings = toppings || @toppings = [Pizza::Topping.new('cheese')]
   	end
 
+
+    def is_vegetarian?(toppings)
+      # if any of the toppings are not vegetarian, return false. 
+      # if in the toppings array, there exists vegetarian: false, then return false.
+      # looks through each of the toppings of the pizza, and looks through the all the keys vegetarian to look for any instance of :false. 
+      @toppings.all? { |each_toppings| each_toppings.vegetarian}
+    end
   end
-
-
-
+  
 
   class Topping #this class contains available toppings
 

@@ -30,16 +30,19 @@ describe Pizza::Pie do #in the Pizza module, Pie Class, do the following:
 			expect(pizza.toppings).to eq(toppings)
 			end
 		end
-
-
 end 
+
+
+
+
+
+
 
 describe Pizza::Topping do #in the Pizza module, Topping Class, do the following:
 	
 	# In RSpec, we use describe blocks to specify what we are testing. At the outer level, we describe the Pizza::Topping class, and within that, we describe the initialize method. The . indicates that this is a class method (since it is called directly off of the Pizza::Topping class: Pizza::Topping.new).
+	
 	describe '.initalize' do
-
-
 		# This test creates a topping object called 'bell pepper and assigns as true'
 		# the newly created topping object called 'topping' must match the expect object.vegetarian name
 			
@@ -49,8 +52,6 @@ describe Pizza::Topping do #in the Pizza module, Topping Class, do the following
 			expect(topping.vegetarian).to be_true # this checks for literal truthyness
 		end
 
-
-
 		it "sets the name of the topping" do
 			#The first line we added is essentially the same code we would run in irb - we create a new Topping and pass the string 'olives' to set the @name. The second line is our expectation: we expect that topping.name will be equal to 'olives'.
 			topping = Pizza::Topping.new('olives', vegetarian: true)
@@ -59,6 +60,24 @@ describe Pizza::Topping do #in the Pizza module, Topping Class, do the following
 		end
 	end
 
+
+
+	describe '#is_vegetarian?' do 
+			it "looks to see if any of the toppings register as vegetarian: false" do
+			topping = Pizza::Topping.new('sausage', vegetarian: false)
+			
+			expect(topping.vegetarian).to be_false # this checks for literal truthyness
+		end
+	end
+
+	describe '#is_vegetarian?' do 
+			it "looks to see if any of the toppings register as vegetarian: false" do
+			topping = Pizza::Topping.new('sauge', vegetarian: true)
+			
+			expect(topping.vegetarian).to be_true # this checks for literal truthyness
+		end
+	end
+	
 end
 
 # to run this script: bundle exec rspec spec/pizza_spec.rb
